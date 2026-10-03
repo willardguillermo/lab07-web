@@ -1,0 +1,13 @@
+# Compilados / build
+demoSeguridad01/target/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Logs
+*.log
+
+# Carpeta original de capturas de WhatsApp (ya copiadas a /evidencias)
+WhatsApp Unknown*/
