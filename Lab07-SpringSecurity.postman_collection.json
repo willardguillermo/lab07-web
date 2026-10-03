@@ -1,0 +1,380 @@
+{
+  "info": {
+    "name": "Lab07 - Spring Security",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Público sin auth -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/api/free",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "free"
+          ]
+        },
+        "auth": {
+          "type": "noauth"
+        }
+      }
+    },
+    {
+      "name": "Client con user -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/client/home",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "home"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "user",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "user2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Client con admin -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/client/home",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "home"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Client sin auth -> 401",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/client/home",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "home"
+          ]
+        },
+        "auth": {
+          "type": "noauth"
+        }
+      }
+    },
+    {
+      "name": "Client con manager -> 403",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/client/home",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "client",
+            "home"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "manager",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "manager2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Management con admin -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/management/dashboard",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "management",
+            "dashboard"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Management con user -> 403",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/management/dashboard",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "management",
+            "dashboard"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "user",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "user2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Management con contraseña antigua -> 401",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/management/dashboard",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "management",
+            "dashboard"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "123456",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Manager reportes con manager -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/manager/reportes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "manager",
+            "reportes"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "manager",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "manager2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Manager reportes con admin -> 200",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/manager/reportes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "manager",
+            "reportes"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Manager reportes con user -> 403",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/manager/reportes",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "manager",
+            "reportes"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "user",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "user2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Ruta antigua /admin/panel con admin -> 404",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "http://localhost:8080/admin/panel",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "admin",
+            "panel"
+          ]
+        },
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "admin",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "admin2026",
+              "type": "string"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -11,3 +11,7 @@ demoSeguridad01/target/
 
 # Carpeta original de capturas de WhatsApp (ya copiadas a /evidencias)
 WhatsApp Unknown*/
+
+# Documento del profesor y captura de la guia (no se suben al repo)
+GLAB-*.docx
+Screenshot *.png
